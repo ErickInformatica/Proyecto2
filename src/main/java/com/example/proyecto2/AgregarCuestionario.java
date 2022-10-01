@@ -13,7 +13,7 @@ public class AgregarCuestionario {
 
     @FXML
     void onAddCuestionario(ActionEvent event) {
-        Cuestionario cuest = new Cuestionario("222222", "Hola", "hola prueba");
+        Cuestionario cuest = new Cuestionario("222222", "Hola", "hola prueba", "REGISTRADO");
         hC.pruebaAgregar(cuest);
     }
 

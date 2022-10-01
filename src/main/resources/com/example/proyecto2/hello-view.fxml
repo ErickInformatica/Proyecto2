@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto2.HelloController">
@@ -14,23 +15,43 @@
       <Insets />
    </opaqueInsets>
    <children>
-      <TableView fx:id="table" layoutX="43.0" layoutY="131.0" prefHeight="184.0" prefWidth="513.0">
-        <columns>
-          <TableColumn fx:id="pin" prefWidth="106.0" text="Pin" />
-          <TableColumn fx:id="nombre" minWidth="0.0" prefWidth="131.0" text="Nombre" />
-            <TableColumn fx:id="descripcion" prefWidth="206.0" text="Descripcion" />
-        </columns>
-      </TableView>
-      <Button layoutX="496.0" layoutY="345.0" mnemonicParsing="false" onAction="#abrirAgregarCuestionario" prefHeight="31.0" prefWidth="60.0" text="Agregar" />
-      <Button layoutX="43.0" layoutY="73.0" mnemonicParsing="false" text="Activar" />
-      <Button layoutX="117.0" layoutY="73.0" mnemonicParsing="false" onAction="#clonarCuestionario" text="Clonar" />
-      <Button layoutX="190.0" layoutY="73.0" mnemonicParsing="false" text="Evaluar" />
-      <Button layoutX="264.0" layoutY="73.0" mnemonicParsing="false" text="Top 3" />
-      <TextField fx:id="pinFld" layoutX="43.0" layoutY="348.0" />
-      <TextField fx:id="nombreFld" layoutX="213.0" layoutY="348.0" prefHeight="25.0" prefWidth="253.0" />
-      <Text fx:id="pinTxt" layoutX="43.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PIN" />
-      <Text fx:id="nombreTxt" layoutX="213.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
-      <Text fx:id="descripcionTxt" layoutX="45.0" layoutY="403.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION" />
-      <TextArea fx:id="descFld" layoutX="43.0" layoutY="414.0" prefHeight="110.0" prefWidth="424.0" />
+      <Pane fx:id="panePrincipal" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+         <children>
+            <TableView fx:id="table" layoutX="44.0" layoutY="155.0" prefHeight="184.0" prefWidth="513.0">
+              <columns>
+                <TableColumn fx:id="pin" prefWidth="106.0" text="Pin" />
+                <TableColumn fx:id="nombre" minWidth="0.0" prefWidth="131.0" text="Nombre" />
+                  <TableColumn fx:id="descripcion" prefWidth="206.0" text="Descripcion" />
+              </columns>
+            </TableView>
+            <Button layoutX="497.0" layoutY="385.0" mnemonicParsing="false" onAction="#abrirAgregarCuestionario" prefHeight="31.0" prefWidth="60.0" text="Agregar" />
+            <Button layoutX="179.0" layoutY="109.0" mnemonicParsing="false" text="Activar" />
+            <Button layoutX="244.0" layoutY="109.0" mnemonicParsing="false" onAction="#clonarCuestionario" text="Clonar" />
+            <Button fx:id="btnEvaluar" layoutX="310.0" layoutY="109.0" mnemonicParsing="false" onAction="#abrirEvaluar" text="Evaluar" />
+            <Button layoutX="375.0" layoutY="109.0" mnemonicParsing="false" text="Top 3" />
+            <TextField fx:id="pinFld" layoutX="46.0" layoutY="388.0" />
+            <TextField fx:id="nombreFld" layoutX="217.0" layoutY="388.0" prefHeight="25.0" prefWidth="253.0" />
+            <Text fx:id="pinTxt" layoutX="46.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PIN" />
+            <Text fx:id="nombreTxt" layoutX="217.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOMBRE" />
+            <Text fx:id="descripcionTxt" layoutX="46.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DESCRIPCION" />
+            <TextArea fx:id="descFld" layoutX="46.0" layoutY="444.0" prefHeight="110.0" prefWidth="424.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="paneEvaluacion" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;" />
+      <Pane fx:id="paneDetalleCuestionario" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;">
+         <children>
+            <TableView layoutX="118.0" layoutY="216.0" prefHeight="200.0" prefWidth="403.0">
+              <columns>
+                <TableColumn prefWidth="129.0" text="Pregunta" />
+                <TableColumn prefWidth="154.0" text="Tiempo Limite" />
+                  <TableColumn prefWidth="119.0" text="Punteo" />
+              </columns>
+            </TableView>
+            <Button layoutX="207.0" layoutY="141.0" mnemonicParsing="false" text="Modificar" />
+            <Button layoutX="361.0" layoutY="141.0" mnemonicParsing="false" text="Borrar" />
+            <Text layoutX="184.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titulo:" />
+            <Text layoutX="184.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripcion:" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

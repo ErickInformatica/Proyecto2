@@ -4,11 +4,22 @@ public class Cuestionario {
     private String pin;
     private String nombre;
     private String descripcion;
+    private String estado;
 
-    public Cuestionario(String pin, String nombre, String descripcion) {
+
+    public Cuestionario(String pin, String nombre, String descripcion, String estado) {
         this.pin = pin;
         this.nombre = nombre;
         this.descripcion = descripcion;
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getPin() {

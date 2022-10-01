@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -24,18 +21,28 @@ import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class HelloController implements Initializable {
+    //PANE PRINCIPAL
+    @FXML
+    private Pane panePrincipal;
+
+    @FXML
+    private Button btnEvaluar;
+
+
+    //TABLES
     @FXML
     private TableView<Cuestionario> table;
+    //TEXTS
     @FXML
     private Text pinTxt;
     @FXML
-    private TextField pinFld;
-    @FXML
     private Text nombreTxt;
     @FXML
-    private TextField nombreFld;
-    @FXML
     private Text descripcionTxt;
+    @FXML
+    private TextField pinFld;
+    @FXML
+    private TextField nombreFld;
     @FXML
     private TextArea descFld;
 
@@ -49,8 +56,8 @@ public class HelloController implements Initializable {
     private TableColumn<Cuestionario, String> descripcion;
 
     ObservableList<Cuestionario> list = FXCollections.observableArrayList(
-            new Cuestionario("123456", "Erick", "Esto es una prueba"),
-            new Cuestionario("123456", "Juan", "Esto es una prueba")
+            new Cuestionario("123456", "Erick", "Esto es una prueba", "REGISTRADO"),
+            new Cuestionario("123456", "Juan", "Esto es una prueba", "REGISTRADO")
     );
 
     @Override
@@ -88,7 +95,7 @@ public class HelloController implements Initializable {
             descripcionTxt.setVisible(!prFld);
             descFld.setVisible(!prFld);
         } else {
-            Cuestionario cuest = new Cuestionario(pinFld.getText(), nombreFld.getText(), descFld.getText());
+            Cuestionario cuest = new Cuestionario(pinFld.getText(), nombreFld.getText(), descFld.getText(), "REGISTRADO");
             table.getItems().add(cuest);
 
             pinFld.clear();
@@ -115,7 +122,8 @@ public class HelloController implements Initializable {
     }
     @FXML
     void clonarCuestionario(ActionEvent event) {
-        Cuestionario cuestionario = table.getSelectionModel().getSelectedItem();
+        Cuestionario cuestionario = new Cuestionario("", table.getSelectionModel().getSelectedItem().getNombre(), table.getSelectionModel().getSelectedItem().getDescripcion(), "REGISTRADO");
+        list.add(cuestionario);
         System.out.println(cuestionario.getPin());
     }
     public void pruebaAgregar(Cuestionario cuest){
@@ -123,5 +131,17 @@ public class HelloController implements Initializable {
 //        table.getItems().add(cuest);
 
         list.add(cuest);
+    }
+
+
+    //PANE EVALUACION
+    @FXML
+    private Pane paneEvaluacion;
+
+    @FXML
+    void abrirEvaluar(ActionEvent event) {
+//        if(event.getSource() == btnEvaluar) paneEvaluacion.toFront();
+        //Traer al frente pane evaluacion
+        paneEvaluacion.toFront();
     }
 }
